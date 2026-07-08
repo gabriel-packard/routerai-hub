@@ -54,18 +54,22 @@
 
 :root {
   --radius: 1rem;
+  /* Sandy beach background */
   --background: oklch(0.98 0.02 85);
   --foreground: oklch(0.28 0.05 240);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.28 0.05 240);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.28 0.05 240);
+  /* Ocean blue */
   --primary: oklch(0.55 0.15 235);
   --primary-foreground: oklch(0.99 0.01 85);
+  /* Sand */
   --secondary: oklch(0.93 0.05 85);
   --secondary-foreground: oklch(0.35 0.06 240);
   --muted: oklch(0.95 0.03 85);
   --muted-foreground: oklch(0.5 0.04 240);
+  /* Turquoise accent */
   --accent: oklch(0.85 0.12 195);
   --accent-foreground: oklch(0.25 0.08 240);
   --destructive: oklch(0.62 0.22 27);
@@ -95,45 +99,6 @@
   --sidebar-ring: oklch(0.78 0.15 195);
 }
 
-/* ✨ Starry Summer Beach — dark mode */
-.dark {
-  --background: oklch(0.14 0.05 260);
-  --foreground: oklch(0.95 0.02 220);
-  --card: oklch(0.22 0.05 260 / 0.55);
-  --card-foreground: oklch(0.96 0.02 220);
-  --popover: oklch(0.2 0.06 260);
-  --popover-foreground: oklch(0.96 0.02 220);
-  --primary: oklch(0.78 0.12 220);
-  --primary-foreground: oklch(0.15 0.05 260);
-  --secondary: oklch(0.28 0.06 260 / 0.7);
-  --secondary-foreground: oklch(0.95 0.02 220);
-  --muted: oklch(0.25 0.05 260 / 0.6);
-  --muted-foreground: oklch(0.75 0.03 220);
-  --accent: oklch(0.85 0.08 220);
-  --accent-foreground: oklch(0.15 0.05 260);
-  --destructive: oklch(0.6 0.22 27);
-  --destructive-foreground: oklch(0.98 0.01 85);
-  --border: oklch(0.85 0.05 220 / 0.18);
-  --input: oklch(0.25 0.06 260 / 0.6);
-  --ring: oklch(0.85 0.1 220);
-
-  --ocean: oklch(0.35 0.12 250);
-  --turquoise: oklch(0.85 0.1 210);
-  --sunset: oklch(0.78 0.14 60);
-  --sand: oklch(0.9 0.04 220);
-
-  --sidebar: oklch(0.18 0.06 260 / 0.6);
-  --sidebar-foreground: oklch(0.95 0.02 220);
-  --sidebar-primary: oklch(0.85 0.1 210);
-  --sidebar-primary-foreground: oklch(0.15 0.05 260);
-  --sidebar-accent: oklch(0.28 0.08 260 / 0.7);
-  --sidebar-accent-foreground: oklch(0.95 0.02 220);
-  --sidebar-border: oklch(0.9 0.05 220 / 0.15);
-  --sidebar-ring: oklch(0.85 0.1 210);
-
-  --shadow-glow: 0 0 40px oklch(0.85 0.1 210 / 0.5), 0 8px 40px oklch(0.15 0.1 260 / 0.6);
-}
-
 @layer base {
   * {
     border-color: var(--color-border);
@@ -143,38 +108,6 @@
     background-attachment: fixed;
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    min-height: 100vh;
-  }
-
-  /* Starry sky + full moon over ocean */
-  .dark body {
-    background:
-      radial-gradient(circle at 78% 18%, oklch(0.98 0.02 90 / 0.95) 0 42px, oklch(0.95 0.03 210 / 0.35) 46px 90px, transparent 120px),
-      radial-gradient(2px 2px at 10% 20%, #ffffffcc, transparent 60%),
-      radial-gradient(1.5px 1.5px at 22% 8%, #ffffffaa, transparent 60%),
-      radial-gradient(1.5px 1.5px at 45% 14%, #ffffff99, transparent 60%),
-      radial-gradient(2px 2px at 62% 30%, #ffffffcc, transparent 60%),
-      radial-gradient(1px 1px at 85% 40%, #ffffff88, transparent 60%),
-      radial-gradient(1.5px 1.5px at 30% 45%, #ffffff77, transparent 60%),
-      radial-gradient(1px 1px at 8% 55%, #ffffff88, transparent 60%),
-      linear-gradient(180deg,
-        oklch(0.12 0.08 265) 0%,
-        oklch(0.16 0.09 260) 40%,
-        oklch(0.22 0.11 245) 62%,
-        oklch(0.28 0.12 235) 100%);
-    background-attachment: fixed;
-  }
-  /* moon reflection on ocean */
-  .dark body::after {
-    content: "";
-    position: fixed;
-    left: 0; right: 0; bottom: 0;
-    height: 40vh;
-    background:
-      radial-gradient(ellipse at 78% 0%, oklch(0.9 0.05 210 / 0.35), transparent 55%),
-      linear-gradient(180deg, transparent, oklch(0.1 0.09 260 / 0.6));
-    pointer-events: none;
-    z-index: 0;
   }
 }
 
@@ -188,38 +121,4 @@
 
 @utility beach-gradient {
   background: linear-gradient(135deg, var(--ocean), var(--turquoise) 60%, var(--sunset));
-}
-
-/* Category-aware neon glow. Set --glow via inline style. */
-@utility glow-card {
-  --glow: var(--turquoise);
-  transition: transform 0.25s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  &:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 0 24px var(--glow), 0 0 60px color-mix(in oklab, var(--glow) 40%, transparent);
-    border-color: var(--glow);
-  }
-  &:active {
-    box-shadow: 0 0 36px var(--glow), 0 0 90px color-mix(in oklab, var(--glow) 55%, transparent);
-  }
-}
-
-@utility glow-btn {
-  --glow: var(--turquoise);
-  transition: transform 0.2s ease, box-shadow 0.25s ease, filter 0.2s ease;
-  &:hover {
-    box-shadow: 0 0 18px var(--glow), 0 0 40px color-mix(in oklab, var(--glow) 40%, transparent);
-    filter: brightness(1.08);
-    transform: translateY(-1px);
-  }
-  &:active {
-    box-shadow: 0 0 24px var(--glow), 0 0 60px color-mix(in oklab, var(--glow) 60%, transparent);
-    transform: translateY(0);
-  }
-}
-
-@utility glass {
-  background: color-mix(in oklab, var(--card) 60%, transparent);
-  backdrop-filter: blur(18px) saturate(140%);
-  border: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
 }
