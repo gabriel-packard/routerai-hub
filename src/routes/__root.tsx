@@ -15,6 +15,10 @@ import { AppSidebar } from "@/components/AppSidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { ApiKeyDialog } from "@/components/ApiKeyDialog";
 import { Toaster } from "@/components/ui/sonner";
+import { MusicPlayer } from "@/components/MusicPlayer";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { CyberNudge } from "@/components/CyberNudge";
+import { applyStoredTheme } from "@/lib/theme";
 
 function NotFoundComponent() {
   return (
@@ -130,31 +134,41 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
+  useEffect(() => {
+    applyStoredTheme();
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <SidebarProvider>
-        <div className="flex min-h-screen w-full">
+        <div className="flex min-h-screen w-full relative">
           <AppSidebar />
-          <div className="flex-1 flex flex-col min-w-0">
-            <header className="sticky top-0 z-30 h-14 flex items-center justify-between gap-2 px-4 border-b border-border/50 bg-background/70 backdrop-blur-xl">
+          <div className="flex-1 flex flex-col min-w-0 relative z-10">
+            <header className="sticky top-0 z-30 h-14 flex items-center justify-between gap-2 px-4 border-b border-border/50 glass">
               <div className="flex items-center gap-2">
                 <SidebarTrigger />
                 <span className="font-bold text-lg beach-gradient bg-clip-text text-transparent" style={{ WebkitBackgroundClip: "text" }}>
                   AI Router
                 </span>
               </div>
-              <ApiKeyDialog />
+              <div className="flex items-center gap-2">
+                <ThemeToggle />
+                <ApiKeyDialog />
+                <MusicPlayer />
+              </div>
             </header>
             <main className="flex-1 p-4 md:p-8">
               <Outlet />
             </main>
-            <footer className="border-t border-border/50 bg-background/60 backdrop-blur px-4 py-3 text-center text-xs text-muted-foreground">
+            <footer className="border-t border-border/50 glass px-4 py-3 text-center text-xs text-muted-foreground">
               🌴 AI-generated content may require human review
             </footer>
           </div>
+          <CyberNudge />
         </div>
         <Toaster />
       </SidebarProvider>
     </QueryClientProvider>
   );
 }
+
