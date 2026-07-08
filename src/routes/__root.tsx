@@ -15,6 +15,10 @@ import { AppSidebar } from "@/components/AppSidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { ApiKeyDialog } from "@/components/ApiKeyDialog";
 import { Toaster } from "@/components/ui/sonner";
+import { MusicPlayer } from "@/components/MusicPlayer";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { CyberNudge } from "@/components/CyberNudge";
+import { applyStoredTheme } from "@/lib/theme";
 
 function NotFoundComponent() {
   return (
