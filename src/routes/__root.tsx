@@ -81,20 +81,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "AI Router — Your beachfront hub for AI tools" },
+      { title: "AI Router — Directory of top AI tools" },
       {
         name: "description",
         content:
-          "AI Router is a sunny SaaS hub: browse the best AI tools, chat, draft emails, summarize meetings, plan tasks, and review Python code.",
+          "Browse a curated directory of AI platforms across education, developer tools, content, media, cybersecurity, and more.",
       },
-      { property: "og:title", content: "AI Router — Your beachfront hub for AI tools" },
+      { property: "og:title", content: "AI Router — Directory of top AI tools" },
       {
         property: "og:description",
         content:
-          "Browse AI platforms, chat, draft emails, summarize meetings, and review Python code — all in one sunny SaaS hub.",
+          "Browse a curated directory of AI platforms across education, developer tools, content, media, cybersecurity, and more.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "AI Router — Directory of top AI tools" },
+      { name: "twitter:description", content: "Browse a curated directory of AI platforms across education, developer tools, content, media, cybersecurity, and more." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/208d2710-052b-4b64-8277-d82ffdc277af/id-preview-0c6b7bd2--a10d7228-a652-4b60-9e2a-bf3e3415df5e.lovable.app-1783515298352.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/208d2710-052b-4b64-8277-d82ffdc277af/id-preview-0c6b7bd2--a10d7228-a652-4b60-9e2a-bf3e3415df5e.lovable.app-1783515298352.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
