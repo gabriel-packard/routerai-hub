@@ -14,6 +14,9 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { AppSidebar } from "@/components/AppSidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { ApiKeyDialog } from "@/components/ApiKeyDialog";
+import { VinylPlayer } from "@/components/VinylPlayer";
+import { DarkModeToggle } from "@/components/DarkModeToggle";
+import { SecurityNudge } from "@/components/SecurityNudge";
 import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
@@ -147,10 +150,15 @@ function RootComponent() {
                   AI Router
                 </span>
               </div>
-              <ApiKeyDialog />
+              <div className="flex items-center gap-2">
+                <VinylPlayer />
+                <DarkModeToggle />
+                <ApiKeyDialog />
+              </div>
             </header>
             <main className="flex-1 p-4 md:p-8">
               <Outlet />
+              <SecurityNudge />
             </main>
             <footer className="border-t border-border/50 bg-background/60 backdrop-blur px-4 py-3 text-center text-xs text-muted-foreground">
               🌴 AI-generated content may require human review
